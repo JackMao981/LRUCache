@@ -4,7 +4,7 @@ public class Node<T, U> {
     Node<T, U> fPrev;
     Node<T, U> fNext;
 
-    public Node(T key, U element, Node next, Node prev) {
+    protected Node(T key, U element, Node next, Node prev) {
         fElement = element;
         fPrev = prev;
         fNext = next;
@@ -13,7 +13,7 @@ public class Node<T, U> {
     /**
      * Removes a node from the linked list by setting the fPrev and fNext of the nodes in front fo and behind it.
      */
-    public void remove() {
+    protected void remove() {
         if(fPrev != null)
             fPrev.setNext(fNext);
         if(fNext != null)
@@ -24,14 +24,14 @@ public class Node<T, U> {
      * Changes the node previous to the node that setPrev is called upon.
      * @param newNode the node to set as the previous node.
      */
-    public void setPrev(Node newNode) {
+    protected void setPrev(Node newNode) {
         fPrev = newNode;
     }
     /**
      * Changes the node ahead of the node that setNext is called upon.
      * @param newNode the node to set as the previous node.
      */
-    public void setNext(Node newNode) {
+    protected void setNext(Node newNode) {
         fNext = newNode;
     }
 
@@ -39,7 +39,7 @@ public class Node<T, U> {
      * Gets the element associated with a node.
      * @return fElement, the element associated with a node.
      */
-    public U getElement() {
+    protected U getElement() {
         return fElement;
     }
 
@@ -49,7 +49,7 @@ public class Node<T, U> {
      * @return fNext, the next node.
      */
 
-    public T getKey() {
+    protected T getKey() {
         return fKey;
     }
 
@@ -57,11 +57,11 @@ public class Node<T, U> {
         return fNext;
     }
 
-    public void setElement(U element) {
+    protected void setElement(U element) {
         fElement = element;
     }
 
-    public void setKey(T key) {
+    protected void setKey(T key) {
         fKey = key;
     }
 }
