@@ -42,9 +42,9 @@ public class LRUCache<T,U> implements Cache<T,U> {
 
 
     //must be fully implement
-    private U retrieve(T key) {
 
-        //add some stuff to retrieve element, aka it should not be null
+
+    private U retrieve(T key) {
         U element = null;
 
         if (fMap.size() == fCapacity) {

@@ -8,7 +8,11 @@ public class MyLinkedList<U> {
             fTail = null;
         }
 
-        public void addHead(U element) {
+    /**
+     * Creates a new node with the given element, and adds the node to the head (most recent) position in the linked list.
+     * @param element the element to add to the list.
+     */
+    public void addHead(U element) {
             Node<U> newHead = new Node<U>(element, fHead, null);
             if (fHead != null) {
                 fHead.setPrev(newHead);
@@ -19,6 +23,10 @@ public class MyLinkedList<U> {
             }
         }
 
+    /**
+     *  Creates a new node, and adds the node to the head (most recent) position in the linked list.
+     * @param node
+     */
         public void addHead(Node node) {
             node.setNext(fHead);
             node.setPrev(null);
