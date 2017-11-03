@@ -4,18 +4,20 @@ import java.util.HashMap;
 //I dont know if this auto allocates memory
 //remind me to ask my dad
 
-public class LRUCache<T,U> {
+public class LRUCache<T,U> implements Cache<T,U> {
 
     private MyLinkedList<U> fList;
     private HashMap<T,Node<U>> fMap;
     private int fCapacity;
     private int fNumMisses;
+    private DataProvider<T,U> fProvider;
 
-    public LRUCache(int capacity) {
+    public LRUCache(DataProvider<T, U> provider, int capacity) {
         fList = new MyLinkedList<U>();
         fMap = new HashMap<T, Node<U>>();
         fCapacity = capacity;
         fNumMisses = 0;
+        fProvider = provider;
     }
 
     public U get(T key) {
