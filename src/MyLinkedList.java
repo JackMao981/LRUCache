@@ -9,7 +9,7 @@ public class MyLinkedList<E> {
         }
 
         public void addHead(E element) {
-            Node newHead = new Node(element, fHead, null);
+            Node<E> newHead = new Node<E>(element, fHead, null);
             if (fHead != null) {
                 fHead.setPrev(newHead);
             }
