@@ -1,15 +1,15 @@
-public class MyLinkedList<E> {
+public class MyLinkedList<U> {
 
-        private Node<E> fHead;
-        private Node<E> fTail;
+        private Node<U> fHead;
+        private Node<U> fTail;
 
         public MyLinkedList(){
             fHead = null;
             fTail = null;
         }
 
-        public void addHead(E element) {
-            Node<E> newHead = new Node<E>(element, fHead, null);
+        public void addHead(U element) {
+            Node<U> newHead = new Node<U>(element, fHead, null);
             if (fHead != null) {
                 fHead.setPrev(newHead);
             }
@@ -32,7 +32,7 @@ public class MyLinkedList<E> {
             fTail.remove();
         }
 
-        public Node<E> getHead() {
+        public Node<U> getHead() {
             return fHead;
         }
 

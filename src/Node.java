@@ -1,9 +1,9 @@
-public class Node<E> {
-    E fElement;
-    Node<E> fPrev;
-    Node<E> fNext;
+public class Node<U> {
+    U fElement;
+    Node<U> fPrev;
+    Node<U> fNext;
 
-    public Node(E element, Node next, Node prev) {
+    public Node(U element, Node next, Node prev) {
         fElement = element;
         fPrev = prev;
         fNext = next;
@@ -24,7 +24,7 @@ public class Node<E> {
         fNext = newNode;
     }
 
-    public E getElement() {
+    public U getElement() {
         return fElement;
     }
 

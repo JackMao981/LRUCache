@@ -1,7 +1,7 @@
 import java.util.HashMap;
 
 //things to consider:
-//I dont know if this auto allocates memory
+//I don't know if this auto allocates memory
 //remind me to ask my dad
 
 public class LRUCache<T,U> implements Cache<T,U> {
@@ -36,7 +36,7 @@ public class LRUCache<T,U> implements Cache<T,U> {
     public int getNumMisses() {
         return fNumMisses;
     }
-}
+
 
     //must be fully implement
     private U retrieve(T key) {
@@ -61,5 +61,5 @@ public class LRUCache<T,U> implements Cache<T,U> {
         fList.removeTail();
         fMap.remove(key);
         add(key, element);
-
+    }
 }
