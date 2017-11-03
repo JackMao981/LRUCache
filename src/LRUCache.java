@@ -32,7 +32,10 @@ public class LRUCache<T,U> implements Cache<T,U> {
             return this.retrieve(key);
         }
     }
-
+    /**
+     * Returns the number of cache misses since the object's instantiation.
+     * @return the number of cache misses since the object's instantiation.
+     */
     public int getNumMisses() {
         return fNumMisses;
     }
