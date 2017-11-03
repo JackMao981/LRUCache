@@ -15,7 +15,7 @@ public class LRUCache<T,U> implements Cache<T,U> {
 
     public LRUCache(DataProvider<T, U> provider, int capacity) {
         fList = new MyLinkedList<T, U>();
-        fMap = new HashMap<T, Node<T, U>>();
+        fMap = new HashMap<T, Node<T, U>>(fCapacity);
         fCapacity = capacity;
         fNumMisses = 0;
         fSize = 0;
