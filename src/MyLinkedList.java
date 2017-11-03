@@ -2,20 +2,15 @@ public class MyLinkedList<T, U> {
 
         private Node<T, U> fHead;
         private Node<T, U> fTail;
+        private int fCapacity;
 
-        public MyLinkedList(){
+        public MyLinkedList(int capacity){
             fHead = null;
             fTail = null;
-        }
-
-        public void addHead(T key, U element) {
-            Node<T, U> newHead = new Node<T, U>(key, element, fHead, null);
-            if (fHead != null) {
-                fHead.setPrev(newHead);
-            }
-            fHead = newHead;
-            if (fTail == null) {
-                fTail = newHead;
+            fCapacity = capacity;
+            //fills list
+            for(int i = 0; i < fCapacity; i++) {
+                addHead(new Node(null, null, null, null));
             }
         }
 
@@ -26,6 +21,9 @@ public class MyLinkedList<T, U> {
                 fHead.setPrev(node);
             }
             fHead = node;
+            if (fTail == null) {
+                fTail = node;
+            }
         }
 
         public void removeTail() {

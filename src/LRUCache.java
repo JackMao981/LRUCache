@@ -14,7 +14,7 @@ public class LRUCache<T,U> implements Cache<T,U> {
     private int fSize;
 
     public LRUCache(DataProvider<T, U> provider, int capacity) {
-        fList = new MyLinkedList<T, U>();
+        fList = new MyLinkedList<T, U>(fCapacity);
         fMap = new HashMap<T, Node<T, U>>(fCapacity);
         fCapacity = capacity;
         fNumMisses = 0;
@@ -45,27 +45,21 @@ public class LRUCache<T,U> implements Cache<T,U> {
 
 
     private U retrieve(T key) {
-
         U element = fProvider.get(key);
-
-        if (fSize == fCapacity) {
-            replace(key, element);
-            fSize++;
-        } else {
-            add(key, element);
-            fSize++;
-        }
+        add(key, element);
+        fSize++;
         return element;
     }
 
     private void add(T key, U element) {
-        fList.addHead(key, element);
-        fMap.put(key, fList.getHead());
-    }
-
-    private void replace(T key, U element) {
-        fMap.remove(fList.getTail().getKey());
+        Node usedNode = fList.getTail();
+        if (usedNode.getKey() != null) {
+            fMap.remove(usedNode.getKey());
+        }
         fList.removeTail();
-        add(key, element);
+        usedNode.setElement(element);
+        usedNode.setKey(key);
+        fList.addHead(usedNode);
+        fMap.put(key, fList.getHead());
     }
 }

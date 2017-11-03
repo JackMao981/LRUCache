@@ -56,4 +56,12 @@ public class Node<T, U> {
     public Node getNext() {
         return fNext;
     }
+
+    public void setElement(U element) {
+        fElement = element;
+    }
+
+    public void setKey(T key) {
+        fKey = key;
+    }
 }
