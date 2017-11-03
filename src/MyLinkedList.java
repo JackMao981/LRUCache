@@ -1,19 +1,15 @@
-public class MyLinkedList<U> {
+public class MyLinkedList<T, U> {
 
-        private Node<U> fHead;
-        private Node<U> fTail;
+        private Node<T, U> fHead;
+        private Node<T, U> fTail;
 
         public MyLinkedList(){
             fHead = null;
             fTail = null;
         }
 
-    /**
-     * Creates a new node with the given element, and adds the node to the head (most recent) position in the linked list.
-     * @param element the element to add to the list.
-     */
-    public void addHead(U element) {
-            Node<U> newHead = new Node<U>(element, fHead, null);
+        public void addHead(T key, U element) {
+            Node<T, U> newHead = new Node<T, U>(key, element, fHead, null);
             if (fHead != null) {
                 fHead.setPrev(newHead);
             }
@@ -23,10 +19,6 @@ public class MyLinkedList<U> {
             }
         }
 
-    /**
-     *  Creates a new node, and adds the node to the head (most recent) position in the linked list.
-     * @param node
-     */
         public void addHead(Node node) {
             node.setNext(fHead);
             node.setPrev(null);
@@ -40,9 +32,13 @@ public class MyLinkedList<U> {
             fTail.remove();
         }
 
-        public Node<U> getHead() {
+        public Node<T, U> getHead() {
             return fHead;
         }
+
+        public Node<T, U> getTail() {
+        return fTail;
+    }
 
     }
 
