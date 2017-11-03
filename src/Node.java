@@ -1,9 +1,10 @@
-public class Node<U> {
+public class Node<T, U> {
     U fElement;
-    Node<U> fPrev;
-    Node<U> fNext;
+    T fKey;
+    Node<T, U> fPrev;
+    Node<T, U> fNext;
 
-    public Node(U element, Node next, Node prev) {
+    public Node(T key, U element, Node next, Node prev) {
         fElement = element;
         fPrev = prev;
         fNext = next;
@@ -26,6 +27,10 @@ public class Node<U> {
 
     public U getElement() {
         return fElement;
+    }
+
+    public T getKey() {
+        return fKey;
     }
 
     public Node getNext() {
