@@ -1,7 +1,7 @@
-public class MyLinkedList<E> {
+public class MyLinkedList<U> {
 
-        private Node<E> fHead;
-        private Node<E> fTail;
+        private Node<U> fHead;
+        private Node<U> fTail;
 
         public MyLinkedList(){
             fHead = null;
@@ -32,7 +32,7 @@ public class MyLinkedList<E> {
             fTail.remove();
         }
 
-        public Node<E> getHead() {
+        public Node<U> getHead() {
             return fHead;
         }
 
