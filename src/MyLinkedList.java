@@ -4,7 +4,7 @@ public class MyLinkedList<T, U> {
         private Node<T, U> fTail;
         private int fCapacity;
 
-        protected MyLinkedList(int capacity){
+        public MyLinkedList(int capacity){
             fHead = null;
             fTail = null;
             fCapacity = capacity;
@@ -26,8 +26,12 @@ public class MyLinkedList<T, U> {
             }
         }
 
-        protected void removeTail() {
+        protected void removeTail(T key, U element) {
             fTail.remove();
+            fTail.setElement(element);
+            fTail.setKey(key);
+            this.addHead(fTail);
+            fTail = fTail.getPrev();
         }
 
         protected Node<T, U> getHead() {

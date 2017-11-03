@@ -48,14 +48,10 @@ public class LRUCache<T,U> implements Cache<T,U> {
     }
 
     private void add(T key, U element) {
-        Node usedNode = fList.getTail();
-        if (usedNode.getKey() != null) {
-            fMap.remove(usedNode.getKey());
+        if (fList.getTail().getKey() != null) {
+            fMap.remove(fList.getTail().getKey());
         }
-        fList.removeTail();
-        usedNode.setElement(element);
-        usedNode.setKey(key);
-        fList.addHead(usedNode);
+        fList.removeTail(key, element);
         fMap.put(key, fList.getHead());
     }
 }

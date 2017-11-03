@@ -4,7 +4,7 @@ public class Node<T, U> {
     Node<T, U> fPrev;
     Node<T, U> fNext;
 
-    protected Node(T key, U element, Node next, Node prev) {
+    public Node(T key, U element, Node next, Node prev) {
         fElement = element;
         fPrev = prev;
         fNext = next;
@@ -53,8 +53,12 @@ public class Node<T, U> {
         return fKey;
     }
 
-    public Node getNext() {
+    protected Node getNext() {
         return fNext;
+    }
+
+    protected Node getPrev() {
+        return fPrev;
     }
 
     protected void setElement(U element) {
