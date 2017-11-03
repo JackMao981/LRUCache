@@ -1,9 +1,9 @@
 import java.util.HashMap;
 
-//things to consider:
-//I don't know if this auto allocates memory
-//remind me to ask my dad
-
+/**
+ * An implementation of <tt>Cache</tt> that uses a least-recently-used (LRU)
+ * eviction policy.
+ */
 public class LRUCache<T,U> implements Cache<T,U> {
 
     private MyLinkedList<T, U> fList;
@@ -12,6 +12,10 @@ public class LRUCache<T,U> implements Cache<T,U> {
     private int fNumMisses;
     private DataProvider<T,U> fProvider;
 
+    /**
+     * @param provider the data provider to consult for a cache miss
+     * @param capacity the exact number of (key,value) pairs to store in the cache
+     */
     public LRUCache(DataProvider<T, U> provider, int capacity) {
         fList = new MyLinkedList<T, U>(fCapacity);
         fMap = new HashMap<T, Node<T, U>>(fCapacity);
@@ -20,10 +24,15 @@ public class LRUCache<T,U> implements Cache<T,U> {
         fProvider = provider;
     }
 
+    /**
+     * Returns the value associated with the specified key.
+     * @param key the key
+     * @return the value associated with the key
+     */
     public U get(T key) {
         if (fMap.containsKey(key)){
-            Node<T, U> node = fMap.get(key);
-            U element = node.getElement();
+            final Node<T, U> node = fMap.get(key);
+            final U element = node.getElement();
             fList.addHead(node);
             node.remove();
             return element;
@@ -32,6 +41,7 @@ public class LRUCache<T,U> implements Cache<T,U> {
             return this.retrieve(key);
         }
     }
+
     /**
      * Returns the number of cache misses since the object's instantiation.
      * @return the number of cache misses since the object's instantiation.
@@ -40,13 +50,22 @@ public class LRUCache<T,U> implements Cache<T,U> {
         return fNumMisses;
     }
 
-
+    /**
+     * Retrieves a value from provider based on key
+     * @param key the key
+     * @return the value associated with the key
+     */
     private U retrieve(T key) {
-        U element = fProvider.get(key);
+        final U element = fProvider.get(key);
         add(key, element);
         return element;
     }
 
+    /**
+     * Adds a key and its associated value to the cache
+     * @param key the key
+     * @param element the corresponding value
+     */
     private void add(T key, U element) {
         if (fList.getTail().getKey() != null) {
             fMap.remove(fList.getTail().getKey());
