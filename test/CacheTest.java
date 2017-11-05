@@ -58,7 +58,7 @@ public class CacheTest {
         assertEquals(cache.get(3), "3");
 
         //works for keys not yet in cache
-        assertEquals(cache.get(7), "7");
-        assertEquals(cache.get(8), "8");
+        assertEquals(cache.get(capacity + 2), ((Integer) (capacity + 2)).toString());
+        assertEquals(cache.get(capacity + 3), ((Integer) (capacity + 3)).toString());
     }
 }
