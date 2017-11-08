@@ -19,7 +19,7 @@ public class CacheTest {
 	// keep it larger than 3
 	public final int capacity = 5;
 
-	public DataProvider<Integer, String> provider = new StringLoader();
+	public DataProvider<Integer, String> provider;
 	public Cache<Integer, String> cache;
 
 	@Before

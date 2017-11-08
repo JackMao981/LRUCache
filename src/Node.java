@@ -1,7 +1,7 @@
 /**
- * node for MyLinkedList
+ * A node used in MyLinkedList. Is not a nested class in MyLinkedList because it must be used in the Hashmap of the LRUCache
  */
-public class Node<T, U> {
+class Node<T, U> {
     U fElement;
     T fKey;
     Node<T, U> fPrev;

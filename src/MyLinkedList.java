@@ -1,22 +1,22 @@
 /**
- * A linked list suitable for the assignment
+ * A doubly linked list suitable for the assignment
  */
-public class MyLinkedList<T, U> {
+class MyLinkedList<T, U> {
 
         private Node<T, U> fHead;
         private Node<T, U> fTail;
         private int fCapacity;
 
     /**
-     * Initiates linked list of given capacity, size of list never changes
+     * Initiates doubly linked list of given capacity, size of list never changes
      * @param capacity the capacity
      */
-    public MyLinkedList(int capacity){
+    protected MyLinkedList(int capacity){
         fHead = null;
         fTail = null;
         fCapacity = capacity;
 
-        //fills list
+        //fills list with nodes with null values
         for(int i = 0; i < fCapacity; i++) {
             addHead(new Node(null, null, null, null));
         }
@@ -39,7 +39,7 @@ public class MyLinkedList<T, U> {
     }
 
     /**
-     * Removes the node at the tail of the list and replaces it at the head, but with a new key and element
+     * Removes the node at the tail of the list and puts it at the head, but with a new key and element
      * @param key the new key
      * @param element the new element
      */
