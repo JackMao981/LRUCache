@@ -7,7 +7,7 @@ import org.junit.Test;
  */
 public class CacheTest {
 
-	 private class StringLoader implements DataProvider<Integer, String> {
+	 public class StringLoader implements DataProvider<Integer, String> {
 		public StringLoader() {
 		}
 
