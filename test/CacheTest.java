@@ -17,10 +17,10 @@ public class CacheTest {
 	}
 
 	// keep it larger than 3
-	public final int capacity = 5;
+	private final int capacity = 5;
 
-	public DataProvider<Integer, String> provider;
-	public Cache<Integer, String> cache;
+	private DataProvider<Integer, String> provider;
+	private Cache<Integer, String> cache;
 
 	@Before
 	public void setUp() {
