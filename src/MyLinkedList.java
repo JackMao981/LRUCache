@@ -11,7 +11,7 @@ class MyLinkedList<T, U> {
      * Initiates doubly linked list of given capacity, size of list never changes
      * @param capacity the capacity
      */
-    protected MyLinkedList(int capacity){
+    MyLinkedList(int capacity){
         fHead = null;
         fTail = null;
         fCapacity = capacity;
@@ -26,7 +26,7 @@ class MyLinkedList<T, U> {
      * Adds a node to the head of the linked list
      * @param node the node
      */
-    protected void addHead(Node node) {
+    void addHead(Node node) {
         node.setNext(fHead);
         node.setPrev(null);
         if (fHead != null) {
@@ -39,11 +39,11 @@ class MyLinkedList<T, U> {
     }
 
     /**
-     * Removes the node at the tail of the list and puts it at the head, but with a new key and element
+     * Removes the node at the tail of the list and puts it at the head, but with the given key and element
      * @param key the new key
      * @param element the new element
      */
-    protected void removeTail(T key, U element) {
+    void removeTail(T key, U element) {
         final Node newTail = fTail.getPrev();
         fTail.remove();
         fTail.setElement(element);
@@ -53,18 +53,18 @@ class MyLinkedList<T, U> {
     }
 
     /**
-     * Getter for head node
+     * Returns the head node
      * @return the head node
      */
-    protected Node<T, U> getHead() {
+    Node<T, U> getHead() {
         return fHead;
     }
 
     /**
-     * Getter for tail node
+     * Returns the tail node
      * @return the tail node
      */
-    protected Node<T, U> getTail() {
+    Node<T, U> getTail() {
         return fTail;
     }
 

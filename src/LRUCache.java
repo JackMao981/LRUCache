@@ -4,13 +4,13 @@ import java.util.HashMap;
  * An implementation of <tt>Cache</tt> that uses a least-recently-used (LRU)
  * eviction policy.
  */
-public class LRUCache<T,U> implements Cache<T,U> {
+public class LRUCache<T, U> implements Cache<T, U> {
 
     private MyLinkedList<T, U> fList;
-    private HashMap<T,Node<T, U>> fMap;
+    private HashMap<T, Node<T, U>> fMap;
     private int fCapacity;
     private int fNumMisses;
-    private DataProvider<T,U> fProvider;
+    private DataProvider<T, U> fProvider;
 
     /**
      * @param provider the data provider to consult for a cache miss
@@ -33,8 +33,8 @@ public class LRUCache<T,U> implements Cache<T,U> {
         if (fMap.containsKey(key)){
             final Node<T, U> node = fMap.get(key);
             final U element = node.getElement();
-            fList.addHead(node);
             node.remove();
+            fList.addHead(node);
             return element;
         } else {
             fNumMisses++;
@@ -43,8 +43,8 @@ public class LRUCache<T,U> implements Cache<T,U> {
     }
 
     /**
-     * Returns the number of cache misses since the object's instantiation.
-     * @return the number of cache misses since the object's instantiation.
+     * Returns the number of cache misses since the object's instantiation
+     * @return the number of cache misses
      */
     public int getNumMisses() {
         return fNumMisses;

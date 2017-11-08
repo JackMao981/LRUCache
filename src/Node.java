@@ -13,7 +13,7 @@ class Node<T, U> {
      * @param next the next node in MyLinkedList
      * @param prev the previous node in MyLinkedList
      */
-    public Node(T key, U element, Node next, Node prev) {
+    Node(T key, U element, Node next, Node prev) {
         fElement = element;
         fPrev = prev;
         fNext = next;
@@ -22,7 +22,7 @@ class Node<T, U> {
     /**
      * Removes itself from the MyLinkedList it is in
      */
-    protected void remove() {
+    void remove() {
         if(fPrev != null)
             fPrev.setNext(fNext);
         if(fNext != null)
@@ -30,17 +30,18 @@ class Node<T, U> {
     }
 
     /**
-     * Changes the node previous to the node that setPrev is called upon.
-     * @param newNode the node to set as the previous node.
+     * Changes the node previous to the given node
+     * @param newNode the node
      */
-    protected void setPrev(Node newNode) {
+    void setPrev(Node newNode) {
         fPrev = newNode;
     }
+
     /**
-     * Changes the node ahead of the node that setNext is called upon.
-     * @param newNode the node to set as the previous node.
+     * Changes the next node to the given node
+     * @param newNode the node
      */
-    protected void setNext(Node newNode) {
+    void setNext(Node newNode) {
         fNext = newNode;
     }
 
@@ -48,7 +49,7 @@ class Node<T, U> {
      * Gets the element associated with the node
      * @return fElement the element
      */
-    protected U getElement() {
+    U getElement() {
         return fElement;
     }
 
@@ -56,7 +57,7 @@ class Node<T, U> {
      * Gets the key associated with the node
      * @return fKey the key
      */
-    protected T getKey() {
+    T getKey() {
         return fKey;
     }
 
@@ -64,7 +65,7 @@ class Node<T, U> {
      * Gets the next node in the list, relative to the node it is called upon.
      * @return fNext, the next node.
      */
-    protected Node getNext() {
+    Node getNext() {
         return fNext;
     }
 
@@ -72,7 +73,7 @@ class Node<T, U> {
      * Gets the previous node in the list, relative to the node it is called upon.
      * @return fPrev, the previous node.
      */
-    protected Node getPrev() {
+    Node getPrev() {
         return fPrev;
     }
 
@@ -80,7 +81,7 @@ class Node<T, U> {
      * Sets the element of the node
      * @param element the element
      */
-    protected void setElement(U element) {
+    void setElement(U element) {
         fElement = element;
     }
 
@@ -88,7 +89,7 @@ class Node<T, U> {
      * Sets the key for the node
      * @param key the key
      */
-    protected void setKey(T key) {
+    void setKey(T key) {
         fKey = key;
     }
 }
